@@ -23,8 +23,10 @@ Joystick_ joystick2(JOYSTICK_DEFAULT_REPORT_ID + 1, JOYSTICK_TYPE_GAMEPAD, 8, 1,
 
 const unsigned int delayBeforeReadMicros = 10; 
 const unsigned int delayBeforeNextUpdateMicros = 2000;
-SegaGamepad segaGamepad1(A0, A1, A2, A3, 1, 0, 2, delayBeforeReadMicros, delayBeforeNextUpdateMicros);
-SegaGamepad segaGamepad2(9, 8, 7, 6, 5, 4, 3, delayBeforeReadMicros, delayBeforeNextUpdateMicros);
+// 1 pad (controller_db9_pin = aduino_pin) : pin1(Up)=9, pin2(Down)=8, pin3(Left)=7, pin4(Right)=6, pin6(A)=4, pin7(Select)=3, pin9(Start)=5
+SegaGamepad segaGamepad1(9, 8, 7, 6, 4, 3, 5, delayBeforeReadMicros, delayBeforeNextUpdateMicros);
+// 2 pad (controller_db9_pin = aduino_pin) : pin1(Up)=10, pin2(Down)=16, pin3(Left)=14, pin4(Right)=15, pin6(A)=A1, pin7(Select)=A2, pin9(Start)=A0
+SegaGamepad segaGamepad2(10, 16, 14, 15, A1, A2, A0, delayBeforeReadMicros, delayBeforeNextUpdateMicros);
 
 const unsigned long debounceDelayMillis = 50;
 ButtonDebounce modeButtonDebounce1(debounceDelayMillis);
